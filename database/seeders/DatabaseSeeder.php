@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Client;
 use App\Models\Projects;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {

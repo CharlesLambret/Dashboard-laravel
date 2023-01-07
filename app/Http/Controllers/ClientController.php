@@ -22,9 +22,9 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'client_raison_sociale' => 'required',
             'description' => 'required',
-            'raison_sociale' => 'required',
-            'status_juridique' => 'required',
+            'statut_juridique' => 'required',
             'capital' => 'required',
             'numero_de_siret' => 'required',
             'codeNAF' => 'required',
@@ -35,8 +35,8 @@ class ClientController extends Controller
         ]);
 
         Client::create($request->only([
+            'client_raison_sociale',
             'description',
-            'raison_sociale',
             'status_juridique',
             'capital',
             'numero_de_siret',

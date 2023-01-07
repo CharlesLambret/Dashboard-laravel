@@ -4,7 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use database\factories\ClientFactory;
-use app\Models\Client;
+use App\Models\Client;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
@@ -16,21 +17,27 @@ class ProjectsFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {
+    {   
+        
         return [
         'client_id' => function(){
-                return Client::inRandomOrder()->first()->id;
+            return Client::inRandomOrder()->first()->id;
+        },
+        'client_name' => function(){
+            return Client::inRandomOrder()->first()->client_raison_sociale;
         },
         'nom_responsable'=> fake()->words(1, true),
+        'prenom_responsable'=>fake()->words(1,true),
         'email_responsable' => fake()->words(1, true),
         'telephone_responsable' => fake()->phoneNumber(),
-        'titre' => fake()->company(),
+        'titre_projet' => fake()->company(),
         'description' => fake()->text(),
         'debut' => fake()->date(),
         'fin' => fake()->date(),
         'statut' => fake()->text(),
         'jours_vendus' => fake()->randomNumber(2, false),
-        'slug' => fake()->words(1, true),
+       
+       
         ];
     }
 }

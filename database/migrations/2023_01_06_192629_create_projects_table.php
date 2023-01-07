@@ -13,22 +13,21 @@ class CreateprojectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projetsnew', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->integer('client_id');
+            $table->string('client_name');
             $table->string('nom_responsable');
             $table->string('prenom_responsable');
             $table->string('email_responsable');
             $table->string('telephone_responsable');
-            $table->string('titre');
+            $table->string('titre_projet');
             $table->text('description');
             $table->date('debut');
             $table->date('fin');
-            $table->enum('statut', ['non demarre', 'en cours', 'termine']);
+            $table->string('statut');
             $table->integer('jours_vendus');
             $table->timestamps();
-            $table->string('slug')->unique();
         });
     }
 

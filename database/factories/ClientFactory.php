@@ -17,16 +17,20 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
+        'client_raison_sociale'=>fake()->company(),
         'description' => fake()->sentences(2, true),
-        'status_juridique'=> fake()->sentences(3, true),
+        'statut_juridique'=> fake()->sentences(3, true),
         'capital' => fake()->buildingNumber(),
         'numero_de_siret' => fake()->sentences(2, true),
         'codeNAF' => fake()->sentences(1, true),
         'adresse_siege_social' => fake()->streetName(),
         'pays' => fake()->city(),
-        'adresse' => fake()->streetName(fake()->streetAddress()),
+        'adresse' => fake()->text(),
         'code_postale' => fake()->buildingNumber(),
-        'ville' => fake()->sentences(1, true)
+        'ville' => fake()->sentences(1, true),
+      
+
+
         ];
     }
 }

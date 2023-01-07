@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->integer('client_id');
+            $table->string('client_raison_sociale');
             $table-> string('description');
-            $table-> string('status_juridique');
+            $table-> string('statut_juridique');
             $table->integer('capital');
             $table->string('numero_de_siret');
             $table->string('codeNAF');

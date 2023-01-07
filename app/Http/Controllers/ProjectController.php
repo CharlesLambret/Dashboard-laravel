@@ -18,6 +18,7 @@ class ProjectController extends Controller
     public function store(Request $request) {
         $request->validate([
             'client_id' => 'required',
+            'client_name' => 'required',
             'nom_responsable' => 'required',
             'prenom_responsable' => 'required',
             'email_responsable' => 'required',
@@ -28,7 +29,7 @@ class ProjectController extends Controller
             'fin' => 'required',
             'statut' => 'required',
             'jours_vendus' => 'required',
-            'slug' => 'required',
+           
         ]);
         Projects::create($request->all())->firstOrFailed();
         return redirect()->route('client.store');
