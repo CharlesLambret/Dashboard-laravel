@@ -8,11 +8,6 @@ use App\Models\Projects;
 
 class ProjectController extends Controller
 {
-    public function boot()
-{
-    Schema::defaultStringLength(191);
-    $this->app->bind(Project::class);
-}
     public function index()
     {   
        
@@ -37,6 +32,10 @@ class ProjectController extends Controller
         ]);
         Projects::create($request->all())->firstOrFailed();
         return redirect()->route('client.store');
+        }
+        public function create()
+        {
+            return Inertia::render("Project/Create");
         }
 }
 

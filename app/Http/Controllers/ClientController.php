@@ -19,19 +19,34 @@ class ClientController extends Controller
         return Inertia::render('Client/Create');
     }
 
-    public function store(Request $request) {
-        $request->validate(['description' => 'required',
+    public function store(Request $request)
+    {
+        $request->validate([
+            'description' => 'required',
+            'raison_sociale' => 'required',
             'status_juridique' => 'required',
             'capital' => 'required',
             'numero_de_siret' => 'required',
             'codeNAF' => 'required',
-            'adresse_siege_social' => 'required',
             'pays' => 'required',
             'adresse' => 'required',
             'code_postale' => 'required',
-            'ville' => 'required',]);
+            'ville' => 'required',
+        ]);
 
-        Client::create($request->all())->firstOrFailed();
-        return redirect()->route('client.store');
+        Client::create($request->only([
+            'description',
+            'raison_sociale',
+            'status_juridique',
+            'capital',
+            'numero_de_siret',
+            'codeNAF',
+            'pays',
+            'adresse',
+            'code_postale',
+            'ville'
+            ]));
+
+        return redirect()->route('client.index');
     }
 }

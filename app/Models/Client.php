@@ -15,13 +15,15 @@ class Client extends Model
 
     use HasFactory;
     protected $fillable = ["description",
+        "raison_sociale",
         "status_juridique",
         'capital',
         'numero_de_siret',
-        'adresse_siege_social',
+        'codeNAF',
         'pays',
         'adresse',
         'code_postale',
         'ville',
         ];
+
 }

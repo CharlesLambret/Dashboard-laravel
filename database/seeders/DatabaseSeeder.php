@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Client;
-use App\Models\Project;
+use App\Models\Projects;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         Client::factory(20)->create();
-        Project::factory(20)->create();
+        Projects::factory(20)->create();
 
 
 

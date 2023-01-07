@@ -8,7 +8,7 @@ use App\Models\Client;
 
 class Projects extends Model
 {
-    
+    protected $table ='projetsnew';
     public function client()
     {
     return $this->belongsTo(Client::class);

@@ -39,7 +39,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
     Route::post('/client', [ClientController::class, 'store'])->name('client.store');
     Route::get('/projets', [ProjectController::class, 'index'])->name('project.index');
-    Route::post('/projets', [ClientController::class, 'store'])->name('project.store');
+    Route::post('/projets', [ProjectController::class, 'store'])->name('project.store');
+    Route::get('/projets/create', [ProjectController::class, 'create'])->name('project.create');
+    
 }
 );
 Route::middleware('auth')->group(function () {
