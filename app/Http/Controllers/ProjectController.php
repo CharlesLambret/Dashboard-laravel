@@ -33,7 +33,9 @@ class ProjectController extends Controller
             'statut' => 'required',
             'jours_vendus' => 'required',
             'slug' => 'required',
-        ]);}
-
+        ]);
+        Project::create($request->all())->firstOrFailed();
+        return redirect()->route('client.store');
         }
+}
 
