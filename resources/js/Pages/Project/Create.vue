@@ -3,21 +3,26 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head} from '@inertiajs/inertia-vue3';
 import {useForm} from '@inertiajs/inertia-vue3'
 
-const form = useForm({
-    
-    nom_responsable: null,
-    prenom_responsable: null,
-    email_responsable: null,
-    telephone_responsable: null,
-    titre: null,
-    description: null,
-    debut: null,
-    fin: null,
-    statut: null,
-    jours_vendus: null,
-    slug: null,
-
-})
+defineProps({
+    clients : Array,
+}
+)
+const form = useForm(
+    {
+        nom_responsable: null,
+        prenom_responsable: null,
+        email_responsable: null,
+        telephone_responsable: null,
+        titre_projet: null,
+        description: null,
+        debut: null,
+        fin: null,
+        statut: null,
+        jours_vendus: null,
+        client_id: null,
+     
+    }
+)
 
 </script>
 
@@ -35,8 +40,12 @@ const form = useForm({
                     <div class="p-6">
                         <form class="flex flex-col gap-4" @submit.prevent="form.post(route('project.store'))">
                             <!-- email -->
-                            <input placeholder="Titre" type="text" v-model="form.titre">
-                            <div v-if="form.errors.titre">{{ form.errors.titre }}</div>
+                            <select v-model="form.client_id" placeholder="Client">
+                                <option v-for="client in clients" :value="client.id">{{client.raison_sociale}}</option>
+                            </select>
+                            <input placeholder="titre_projet" type="text" v-model="form.titre_projet">
+                            <div v-if="form.errors.titre_projet">{{ form.errors.titre_projet }}</div>
+
                             <!-- password -->
                             <input placeholder="Nom du responsable" type="text" v-model="form.nom_responsable">
                             <div v-if="form.errors.nom_responsable">{{ form.errors.nom_responsable }}</div>
@@ -64,6 +73,7 @@ const form = useForm({
 
                             <input placeholder="Jours vendus" type="number" v-model="form.jours_vendus">
                             <div v-if="form.errors.jours_vendus">{{ form.errors.jours_vendus }}</div>
+
 
                             <!-- submit -->
                             <button class="py-2 px-4 bg-green-400 text-white rounded" type="submit"

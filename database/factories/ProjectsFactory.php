@@ -23,9 +23,6 @@ class ProjectsFactory extends Factory
         'client_id' => function(){
             return Client::inRandomOrder()->first()->id;
         },
-        'client_name' => function(){
-            return Client::inRandomOrder()->first()->client_raison_sociale;
-        },
         'nom_responsable'=> fake()->words(1, true),
         'prenom_responsable'=>fake()->words(1,true),
         'email_responsable' => fake()->words(1, true),

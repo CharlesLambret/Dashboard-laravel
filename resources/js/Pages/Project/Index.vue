@@ -4,7 +4,8 @@ import { Head, Link} from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     'projects' : Array,
-    'pageTitle': String
+    'pageTitle': String,
+    'clients' : Array,
 })
 </script>
 
@@ -53,9 +54,6 @@ const props = defineProps({
                                 {{ project.titre_projet.substring(0,20) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ project.client_name.substring(0,20)}}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ project.description.substring(0,20) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -63,7 +61,7 @@ const props = defineProps({
                             </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <Link :href="route('project.edit', {id: project.id})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
+                                <Link :href="route('projets.edit', {id: project.id})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
                             </td>
                         </tr>
                         </tbody>

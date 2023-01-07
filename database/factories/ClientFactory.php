@@ -17,7 +17,7 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-        'client_raison_sociale'=>fake()->company(),
+        'raison_sociale'=>fake()->company(),
         'description' => fake()->sentences(2, true),
         'statut_juridique'=> fake()->sentences(3, true),
         'capital' => fake()->buildingNumber(),

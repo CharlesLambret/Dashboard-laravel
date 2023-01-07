@@ -8,12 +8,11 @@ use App\Models\Project;
 
 class Client extends Model
 {   
-    protected $table ='clients';
     
 
     use HasFactory;
     protected $fillable = [
-    'client_raison_sociale',
+    'raison_sociale',
     'description' ,
     'statut_juridique',
     'capital' ,

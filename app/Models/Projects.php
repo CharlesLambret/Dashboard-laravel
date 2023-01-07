@@ -8,7 +8,7 @@ use App\Models\Client;
 
 class Projects extends Model
 {
-    protected $table ='projects';
+ 
     public function client()
     {
     return $this->belongsTo(Client::class);
@@ -16,7 +16,6 @@ class Projects extends Model
     use HasFactory;
     protected $fillable = [
         'client_id',
-        'client_name',
         'nom_responsable',
         'prenom_responsable',
         'email_responsable',

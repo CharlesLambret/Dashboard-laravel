@@ -31,7 +31,7 @@ const props = defineProps({
                     <tr v-for="client in clients" :key="client" class="flex justify-around flex-nowrap">
 
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {{ client.client_raison_sociale }}
+                            {{ client.raison_sociale }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {{ client.description }}
