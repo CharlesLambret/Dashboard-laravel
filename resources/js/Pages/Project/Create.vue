@@ -65,9 +65,6 @@ const form = useForm({
                             <input placeholder="Jours vendus" type="number" v-model="form.jours_vendus">
                             <div v-if="form.errors.jours_vendus">{{ form.errors.jours_vendus }}</div>
 
-                            <input placeholder="Slug" type="number" v-model="form.slug">
-                            <div v-if="form.errors.slug">{{ form.errors.slug }}</div>
-
                             <!-- submit -->
                             <button class="py-2 px-4 bg-green-400 text-white rounded" type="submit"
                                     :disabled="form.processing">Sauvegarder

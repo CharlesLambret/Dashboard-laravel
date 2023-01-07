@@ -50,20 +50,20 @@ const props = defineProps({
                         <!-- Odd row -->
                         <tr v-for="project in projects" :key="project">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                {{ project.titre_projet.substring(0,20) }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ project.client_name.substring(0,20)}}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ project.description.substring(0,20) }}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ project.capital.substring(0,20)}}
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ project.codeNAF.substring(0,20) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ project.statut.substring(0,20) }}
                             </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <Link :href="route('project.edit', {slug: project.slug})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
+                                <Link :href="route('project.edit', {id: project.id})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
                             </td>
                         </tr>
                         </tbody>
