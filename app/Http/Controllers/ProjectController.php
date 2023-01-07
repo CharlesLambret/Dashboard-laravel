@@ -16,8 +16,9 @@ class ProjectController extends Controller
     public function index()
     {   
        
-        return Inertia::render('Project/Index');
-        
+        return Inertia::render('Project/Index', [
+            'projects'=> Projects::all()
+        ]);
     }
     public function store(Request $request) {
         $request->validate([
@@ -34,7 +35,7 @@ class ProjectController extends Controller
             'jours_vendus' => 'required',
             'slug' => 'required',
         ]);
-        Project::create($request->all())->firstOrFailed();
+        Projects::create($request->all())->firstOrFailed();
         return redirect()->route('client.store');
         }
 }
