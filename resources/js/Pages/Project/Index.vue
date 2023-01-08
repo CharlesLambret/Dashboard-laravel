@@ -7,6 +7,7 @@ const props = defineProps({
     'pageTitle': String,
     'clients' : Array,
 })
+
 </script>
 
 <template>
@@ -54,16 +55,20 @@ const props = defineProps({
                                 {{ project.titre_projet.substring(0,20) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ project.description.substring(0,20) }}
+                                <template v-for="client in clients">
+                                    <template v-if="client.id === project.client_id">
+                                        {{ client.raison_sociale.substring(0,20) }}
+                                    </template>
+                                </template>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{ project.statut.substring(0,20) }}
                             </td>
-                            
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <Link :href="route('projets.edit', {id: project.id})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
                             </td>
                         </tr>
+
                         </tbody>
                     </table>
                 </div>

@@ -11,16 +11,21 @@ class ProjectController extends Controller
 {
     public function index()
     {   
-       
+        
+        $projects = Projects::all();
+        $client_id = $projects->pluck('client_id')->unique();
+        $clients = Client::whereIn('id', $client_id)->get();
         return Inertia::render('Project/Index', [
-            'projects'=> Projects::all()
+            'projects'=> $projects,
+            'clients'=>$clients,
         ]);
     }
     public function edit($id) {
         $projects = Projects::where('id', $id)->firstOrFail();
-
+        $clients = Client::all();
         return Inertia::render("Project/Edit", [
-            'projects' => $projects
+            'projects' => $projects,
+            'clients' =>  $clients,
         ]);
     }
     public function update(Request $request, $id)
@@ -96,6 +101,11 @@ class ProjectController extends Controller
             ]);
             
         }
-        
+        public function delete($id) {
+            $projet = Projects::where('id', $id)->firstOrFail();
+            $projet->delete();
+    
+            return redirect()->route('project.index');
+        }
 }
 
