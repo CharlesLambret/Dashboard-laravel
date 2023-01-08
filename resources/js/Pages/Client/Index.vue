@@ -3,9 +3,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link} from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
-    'projects' : Array,
-    'pageTitle': String,
     'clients' : Array,
+    'pageTitle': String,
+    'projects' : Array,
 })
 
 </script>
@@ -17,7 +17,7 @@ const props = defineProps({
         <template #header>
             <div class="flex flex-space-around">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Clients</h2>
-            <Link class="text-white py-2 px-4 bg-green-500 rounded" :href="route('project.create')">Ajouter un client</Link>
+            <Link class="text-white py-2 px-4 bg-green-500 rounded" :href="route('client.create')">Ajouter un client</Link>
             </div>
         </template>
 
@@ -33,15 +33,11 @@ const props = defineProps({
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Client
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Description
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Statut
+                               Projets
                             </th>
                             <th scope="col" class="relative px-6 py-3">
                                 <span class="sr-only">Editer</span>
@@ -50,22 +46,18 @@ const props = defineProps({
                         </thead>
                         <tbody>
                         <!-- Odd row -->
-                        <tr v-for="project in projects" :key="project">
+                        <tr v-for="client in clients" :key="client">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                {{ project.titre_projet.substring(0,20) }}
+                                {{ client.raison_sociale.substring(0,20) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                <template v-for="client in clients">
-                                    <template v-if="client.id === project.client_id">
-                                        {{ client.raison_sociale.substring(0,20) }}
-                                    </template>
-                                </template>
+                                {{ client.description.substring(0,20) }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {{ project.statut.substring(0,20) }}
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">                
+                                        {{ projects.filter(project => project.client_id === client.id).length  }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <Link :href="route('projets.edit', {id: project.id})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
+                                <Link :href="route('client.edit', {id: client.id})" class="text-indigo-600 hover:text-indigo-900">Editer</Link>
                             </td>
                         </tr>
 

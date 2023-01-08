@@ -32,17 +32,18 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function() {
-    Route::get('/project', [ProjectController::class, 'index'])->name('project.index');
-
-
     Route::get('/client', [ClientController::class, 'index'])->name('client.index');
-    Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
     Route::post('/client', [ClientController::class, 'store'])->name('client.store');
+    Route::put('/client/{id}', [\App\Http\Controllers\ClientController::class, 'update'])->name('client.update');
+    Route::delete('/client/{id}', [\App\Http\Controllers\ClientController::class, 'delete'])->name('clients.delete');
+    Route::get('/client/{id}/edit', [\App\Http\Controllers\ClientController::class, 'edit'])->name('client.edit');
+    Route::get('/client/create', [ClientController::class, 'create'])->name('client.create');
+    
     Route::get('/projets', [ProjectController::class, 'index'])->name('project.index');
     Route::post('/projets', [ProjectController::class, 'store'])->name('project.store');
-    Route::put('/projets/{id}', [\App\Http\Controllers\ProjectController::class, 'update'])->name('projets.update');
-    Route::delete('/projets/{id}', [\App\Http\Controllers\ProjectController::class, 'delete'])->name('projets.delete');
-    Route::get('/projets/{id}/edit', [\App\Http\Controllers\ProjectController::class, 'edit'])->name('projets.edit');
+    Route::put('/projets/{id}', [\App\Http\Controllers\ProjectController::class, 'update'])->name('project.update');
+    Route::delete('/projets/{id}', [\App\Http\Controllers\ProjectController::class, 'delete'])->name('project.delete');
+    Route::get('/projets/{id}/edit', [\App\Http\Controllers\ProjectController::class, 'edit'])->name('project.edit');
     Route::get('/projets/create', [ProjectController::class, 'create'])->name('project.create');
 }
 );

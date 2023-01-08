@@ -37,7 +37,7 @@ const form = useForm(
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Modifier le projet {{ projects.titre_projet }} </h2>
             
             
-            <Link method="DELETE" :href="route('projets.delete', {id: projects.id})" class="ml-4 text-indigo-600 hover:text-indigo-900">Supprimer</Link>
+            <Link method="DELETE" :href="route('project.delete', {id: projects.id})" class="ml-4 text-indigo-600 hover:text-indigo-900">Supprimer</Link>
 
             
         </template>
@@ -45,7 +45,7 @@ const form = useForm(
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
-                        <form class="flex flex-col gap-4" @submit.prevent="form.put(route('projets.update', {id: projects.id}))">
+                        <form class="flex flex-col gap-4" @submit.prevent="form.put(route('project.update', {id: projects.id}))">
                             <label>Client</label>
                             <select v-model="form.client_id" placeholder="Client">
                                 <option v-for="client in clients" :value="client.id">{{client.raison_sociale}}</option>

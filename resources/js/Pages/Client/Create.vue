@@ -34,7 +34,7 @@ const form = useForm({
                             <label for="description">Description : </label>
                             <input id="description" type="text" v-model="form.description" />
                             <label for="raisonSocial">Raison Social</label>
-                            <input id="raisonSocial" v-model="form.raisonSocial" />
+                            <input id="raisonSocial" type="text" v-model="form.raisonSocial" />
                             <label for="status">Status :</label>
                             <input id="status" type="text" v-model="form.statusJuridique" />
                             <label for="capital">Capital : </label>
@@ -44,7 +44,7 @@ const form = useForm({
                             <label for="codeNAF">Code NAF (APE) :</label>
                             <input id="codeNAF" type="number" v-model="form.codeNAF" />
                             <label for="adresseSiegeSocial">Adresse siège social : </label>
-                            <input id="adresseSiegeSocial"  v-model="form.adresseSiegeSocial" />
+                            <input id="adresseSiegeSocial" type="text" v-model="form.adresseSiegeSocial" />
                             <label for="pays">Pays :</label>
                             <input id="pays" type="search" v-model="form.pays" />
                             <label for="adresse">Adresse :</label>
