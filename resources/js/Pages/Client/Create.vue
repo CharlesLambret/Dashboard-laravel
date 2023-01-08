@@ -24,8 +24,11 @@ const form = useForm({
 <template>
     <AuthenticatedLayout>
         <Head title="Ajouter un client" />
-        <h2>Information société</h2>
-        <p>Information légales de l'entreprise</p>
+        <template #header>
+            <div class="w-full customheader height50vh">
+                <h2 class="pt-10 font-semibold text-xxl leading-tight">Ajouter un client</h2>
+            </div>
+        </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -55,7 +58,7 @@ const form = useForm({
                             <input id="ville" type="text" v-model="form.ville" />
 
                             <button type="reset">Annuler</button>
-                            <button class="py-2 px-4 bg-green-400 text-white rounded" type="submit">Sauvegarder</button>
+                            <button class="py-2 px-4 bg-indigo-400 text-white rounded" type="submit">Sauvegarder</button>
                         </form>
                     </div>
                 </div>

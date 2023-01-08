@@ -31,12 +31,14 @@ const form = useForm(
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xxl leading-tight">Ajouter un projet</h2>
+            <div class="w-full customheader height50vh">
+                <h2 class="pt-10 font-semibold text-xxl leading-tight">Ajouter un projet</h2>
+            </div>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="content-div">
                     <div class="p-6">
                         <form class="flex flex-col gap-4" @submit.prevent="form.post(route('project.store'))">
                 
@@ -91,7 +93,7 @@ const form = useForm(
 
 
                             <!-- submit -->
-                            <button class="py-2 px-4 bg-green-400 text-white rounded" type="submit"
+                            <button class="py-2 px-4 bg-indigo-400 text-white rounded" type="submit"
                                     :disabled="form.processing">Sauvegarder
                             </button>
                         </form>

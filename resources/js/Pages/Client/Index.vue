@@ -15,15 +15,15 @@ const props = defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <div class="flex flex-space-around">
+            <div class="w-full customheader height50vh flex justify-around align-center pt-10">
             <h2 class="font-semibold text-xxl leading-tight">Clients</h2>
-            <Link class="text-white py-2 px-4 bg-green-500 rounded" :href="route('client.create')">Ajouter un client</Link>
+            <Link class="text-white py-2 px-4 bg-indigo-500 rounded" :href="route('client.create')">Ajouter un client</Link>
             </div>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="content-div">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                         <tr>

@@ -13,12 +13,12 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen bg-1f2937">
-            <nav class=" border-b border-gray-100">
+        <div class="min-h-screen">
+            <nav class=" border-b border-gray-100 customheader">
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class=" customheader max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
-                        <div class="flex">
+                        <div class="flex items-center">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
@@ -143,7 +143,7 @@ const showingNavigationDropdown = ref(false);
 
             <!-- Page Heading -->
             <header  v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-full mx-auto">
                     <slot name="header" />
                 </div>
             </header>

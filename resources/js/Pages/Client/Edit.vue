@@ -33,16 +33,17 @@ const form = useForm(
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xxl leading-tight">Modifier le client {{ clients.raison_sociale }} </h2>
+            <div class="w-full customheader height50vh flex justify-around align-center pt-10">
+                <h2 class=" font-semibold text-xxl leading-tight">Modifier le client {{ clients.raison_sociale }} </h2>
             
             
-            <Link method="DELETE" :href="route('client.delete', {id: clients.id})" class="ml-4 text-indigo-600 hover:text-indigo-900">Supprimer</Link>
-
-            
+                <Link method="DELETE" :href="route('client.delete', {id: clients.id})" class="ml-4 text-indigo-600 hover:text-indigo-900">Supprimer</Link>
+            </div>
+        
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="content-div">
                     <div class="p-6">
                         <form class="flex flex-col gap-4" @submit.prevent="form.put(route('client.update', {id: clients.id}))">
                             <label for="description">Description : </label>
@@ -82,7 +83,7 @@ const form = useForm(
                             
                             
                             <!-- submit -->
-                            <button class="py-2 px-4 bg-green-400 text-white rounded" type="submit"
+                            <button class="py-2 px-4 bg-indigo-400 text-white rounded" type="submit"
                                     :disabled="form.processing">Modifier
                             </button>
                         </form>
