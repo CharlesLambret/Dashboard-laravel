@@ -34,7 +34,7 @@ const form = useForm(
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Modifier le projet {{ projects.titre_projet }} </h2>
+            <h2 class="font-semibold text-xxl leading-tight">Modifier le projet {{ projects.titre_projet }} </h2>
             
             
             <Link method="DELETE" :href="route('project.delete', {id: projects.id})" class="ml-4 text-indigo-600 hover:text-indigo-900">Supprimer</Link>

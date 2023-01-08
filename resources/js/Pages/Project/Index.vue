@@ -16,7 +16,7 @@ const props = defineProps({
     <AuthenticatedLayout>
         <template #header>
             <div class="flex flex-space-around">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Projets</h2>
+            <h2 class="font-semibold text-xxl leading-tight">Projets</h2>
             <Link class="text-white py-2 px-4 bg-green-500 rounded" :href="route('project.create')">Ajouter un projet</Link>
             </div>
         </template>

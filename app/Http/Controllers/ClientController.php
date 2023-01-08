@@ -18,10 +18,10 @@ class ClientController extends Controller
             'clients' => $clients,
             'projects' => $projects,
         ]);
-
+ 
     }
     public function edit($id) {
-        $clients = Client::all();
+        $clients = Client::where('id', $id)->firstOrFail();
         return Inertia::render("Client/Edit", [
             'clients' =>  $clients,
         ]);

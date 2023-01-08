@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.min-h-screen{
+    background-color: #1f2937;
+}
+h1,h2,h3, a, Link {
+    color: white;
+}
+h1{
+    font-size:1.9em;
+}
+h2{
+    font-size:1.7em;
+}
